@@ -1,11 +1,12 @@
 import React from 'react';
 
 function Tweet(props) {
+  const { details } = props;
   return (
     <div>
-      <p>{props.details.text}</p>
-      {props.details.extended_entities &&
-        <img src={props.details.extended_entities.media[0].media_url} alt="text" />
+      <p>{details.text}</p>
+      {details.extended_entities
+        && <img src={details.extended_entities.media[0].media_url} alt="text" />
       }
     </div>
   );

@@ -1,16 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import data from './dataSource/tweets';
 import Tweet from './Tweet';
 
-function TweetList() {
-  console.log('data', data.slice(0, 20).map(each => each));
-  return (
-    <div>
-      {data.length > 0 && data.slice(0, 20).map(eachTweet => (
-        <Tweet details={eachTweet}/>
-      ))}
-    </div>
-  );
+class TweetList extends Component {
+  constructor(props) {
+    super(props);
+    // Set the default state of the component
+    this.state = {
+      tweets: [],
+    };
+  }
+
+  render() {
+    const { onNewSearch } = this.props;
+    return (
+      <div>
+        <button onClick={onNewSearch} type="button">Search?</button>
+        {data.length > 0 && data.slice(0, 20).map(eachTweet => (
+          <Tweet details={eachTweet} />
+        ))}
+      </div>
+    );
+  }
 }
 
-export default TweetList;
+const mapStateToProps = state => state;
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onNewSearch: () => dispatch({ type: 'NEW_SEARCH' }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TweetList);
