@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import data from './dataSource/tweets';
-import Tweet from './Tweet';
+import data from '../../dataSource/tweets';
+import Tweet from '../tweet/Tweet';
 
 class TweetList extends Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class TweetList extends Component {
   }
 
   render() {
+    console.log('render', this.props);
     const { onNewSearch } = this.props;
     return (
       <div>
