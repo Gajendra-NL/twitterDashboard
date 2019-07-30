@@ -13,17 +13,17 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div class="layout">
-        <div class="layout__navbar navbar">
-          <div class="navbar__logo"><i class="fab fa-twitter"></i></div>
-          <div class="navbar__search search">
+      <div className="layout">
+        <div className="layout__navbar navbar">
+          <div className="navbar__logo"><i className="fab fa-twitter"></i></div>
+          <div className="navbar__search search">
             <input
               placeholder="Search Twitter"
               onChange={e => this.setState({ searchString: e.target.value })}
             />
-            <i class="fas fa-search"></i>
+            <i className="fas fa-search"></i>
           </div>
-          <button class="navbar__search__button" onClick={() => this.props.saveSearchString(this.state.searchString)}>
+          <button className="navbar__search__button" onClick={() => this.props.onNewSearch(this.state.searchString)}>
             Search
           </button>
         </div>
@@ -36,7 +36,7 @@ const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => {
   return {
-    saveSearchString: payload => dispatch({ type: 'SAVE_SEARCH_STRING', payload }),
+    onNewSearch: payload => dispatch({ type: 'NEW_SEARCH', payload }),
   };
 };
 

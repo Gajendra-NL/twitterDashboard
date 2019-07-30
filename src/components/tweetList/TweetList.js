@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import data from '../../dataSource/tweets';
+import './TweetList.css';
 import Tweet from '../tweet/Tweet';
 
 class TweetList extends Component {
   constructor(props) {
     super(props);
-    // Set the default state of the component
     this.state = {
       tweets: [],
     };
@@ -14,12 +13,11 @@ class TweetList extends Component {
 
   render() {
     console.log('render', this.props);
-    const { onNewSearch } = this.props;
+    const { searchResults } = this.props;
     return (
-      <div>
-        <button onClick={onNewSearch} type="button">Search?</button>
-        {data.length > 0 && data.slice(0, 20).map(eachTweet => (
-          <Tweet details={eachTweet} />
+      <div className='tweets'>
+        {searchResults.length > 0 && searchResults.map(eachTweet => (
+          <Tweet key={eachTweet.id} details={eachTweet} />
         ))}
       </div>
     );
@@ -28,10 +26,4 @@ class TweetList extends Component {
 
 const mapStateToProps = state => state;
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onNewSearch: () => dispatch({ type: 'NEW_SEARCH' }),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TweetList);
+export default connect(mapStateToProps)(TweetList);
