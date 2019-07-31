@@ -12,7 +12,7 @@ function* searchAsync(searchData) {
 }
 
 function getDataFromJson(searchString) {
-  return data.slice(0, 5);
+  return data.filter(e => e.text.includes(searchString));
 }
 
 export function* watchNewSearch() {

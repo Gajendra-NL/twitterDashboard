@@ -17,9 +17,9 @@
 
 .user__image {
   margin: 0px 20px 0px 0px;
-  width: '10%';
-  height: auto;
   border-radius: 100px;
+  width: 60px;
+  height: 60px;
 }
 
 .name__row {
@@ -38,6 +38,24 @@
   margin-left: 5px;
   font-size: 12px;
   font-weight: 500;
+}
+
+.tweet__text {
+  margin-top: 20px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.display__image {
+  margin-top: 10px;
+  width: 500px;
+  height: 280px;
+}
+
+.retweeted__by {
+  margin-bottom: 5px;
+  color: #fff;
+  font-size: 11px;
 }
 
 img {

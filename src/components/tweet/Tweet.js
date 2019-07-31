@@ -13,12 +13,31 @@ function Tweet(props) {
           className='user__image'
           // onerror="this.src='../../assets/nouser.png'"
         />
-        <div className='name__row'>
-          <div className='user__name'>{details.user.name}</div>
-          <div className='user__screen__name'>@{details.user.screen_name}</div>
+        <div>
+          {details.retweeted_status &&
+            <div className='retweeted__by'>
+              {details.user.name} retweeted
+            </div>
+          }
+          <div className='name__row'>
+            <div className='user__name'>
+              {!details.retweeted_status ? details.user.name : details.retweeted_status.user.name}
+            </div>
+            <div className='user__screen__name'>
+              @{!details.retweeted_status ? details.user.screen_name : details.retweeted_status.user.screen_name}
+            </div>
+          </div>
+          <div className='tweet__text'>{details.text}</div>
+          {((details.quoted_status && details.quoted_status.extended_entities) || (details.retweeted_status && details.retweeted_status.extended_entities) ) &&
+            <img
+              src={(details.quoted_status && details.quoted_status.extended_entities) ? details.quoted_status.extended_entities.media[0].media_url : details.retweeted_status.extended_entities.media[0].media_url}
+              alt="user"
+              className='display__image'
+              // onerror="this.src='../../assets/nouser.png'"
+            />
+          }
         </div>
       </div>
-      <div>1. {details.text}</div>
       {/* details.extended_entities
         && <img src={details.extended_entities.media[0].media_url} alt="text" />
       */}
