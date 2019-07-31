@@ -3,7 +3,6 @@ import './Tweet.css';
 
 function Tweet(props) {
   const { details } = props;
-  console.log('details', details.text);
   return (
     <div className="tweet">
       <div className="title__row">
