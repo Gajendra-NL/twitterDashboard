@@ -10,11 +10,6 @@
   background: #1C1D21;
 }
 
-.title__row {
-  display: flex;
-  flex-direction: row;
-}
-
 .user__image {
   margin: 0px 20px 0px 0px;
   border-radius: 100px;
@@ -48,8 +43,9 @@
 
 .display__image {
   margin-top: 10px;
-  width: 500px;
-  height: 280px;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
 }
 
 .retweeted__by {
@@ -60,4 +56,87 @@
 
 img {
   text-indent: -10000px
+}
+
+.imgdiv {
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+}
+
+.commentrow {
+  margin-right: 75px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  /* [class*="col-"] {
+    width: 100%;
+  } */
+  .user__image {
+    /* margin: 0px 20px 0px 0px; */
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    float: left;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  /* For mobile phones: */
+  /* [class*="col-"] {
+    width: 100%;
+  } */
+  .user__image {
+    margin: 0px 20px 0px 0px;
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  /* For mobile phones: */
+  /* [class*="col-"] {
+    width: 100%;
+  } */
+  .user__image {
+    margin: 0px 20px 0px 0px;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+  }
+  .commentrow {
+    margin-right: 15px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.comment {
+  color: #8899A6;
+}
+
+.commentSize {
+  font-size: 18px;
+}
+.actions {
+  display: flex;
+  justify-items: center;
 }

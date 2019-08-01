@@ -18,5 +18,3 @@ function getDataFromJson(searchString) {
 export function* watchNewSearch() {
   yield takeLatest('NEW_SEARCH', searchAsync);
 }
-
-export const dummy = () => {};

@@ -19,3 +19,10 @@ body {
   margin: auto;
   margin-top: 20px;
 }
+
+.load__more {
+  display: flex;
+  align-items: center;
+  margin: 20px auto;
+  padding: 10px 30px;
+}

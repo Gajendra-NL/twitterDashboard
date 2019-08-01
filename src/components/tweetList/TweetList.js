@@ -29,7 +29,9 @@ class TweetList extends Component {
         {tweets.length > 0 && tweets.map(eachTweet => (
           <Tweet key={eachTweet.id} details={eachTweet} />
         ))}
-        <button onClick={() => this.onClickLoadMore()}>Load More</button>
+        {((this.props.searchResults.length - (this.state.currentPage * 10)) > 0) ?
+          <button className='load__more' onClick={() => this.onClickLoadMore()}>Load More</button> : null
+        }
       </div>
     );
   }
@@ -40,7 +42,7 @@ class TweetList extends Component {
         currentPage: this.state.currentPage + 1,
         tweets: [ ...this.state.tweets, ...this.props.searchResults.slice((this.state.currentPage * 10), ((this.state.currentPage * 10) + 10))]
       }, () => {
-        console.log('after', this.state);
+        this.props.updateTweetsInDisplay(this.props.searchResults.slice((this.state.currentPage * 10), ((this.state.currentPage * 10) + 10)));
       });
     }
   }
@@ -48,4 +50,10 @@ class TweetList extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)(TweetList);
+const mapDispatchToProps = dispatch => {
+  return {
+    updateTweetsInDisplay: payload => dispatch({ type: 'UPDATE_RESULTS_IN_DISPLAY', payload }),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TweetList);
