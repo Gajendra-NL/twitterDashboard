@@ -23,12 +23,17 @@ class Header extends React.Component {
             />
             <i className="fas fa-search"></i>
           </div>
-          <button className="navbar__search__button" onClick={() => this.props.onNewSearch(this.state.searchString)}>
+          <button className="navbar__search__button" onClick={this.onPressNewSearch}>
             Search
           </button>
         </div>
       </div>
     );
+  }
+
+  onPressNewSearch = () => {
+    this.props.onClickNewSearch();
+    this.props.onNewSearch(this.state.searchString);
   }
 }
 

@@ -12,7 +12,11 @@ function* searchAsync(searchData) {
 }
 
 function getDataFromJson(searchString) {
-  return data.filter(e => e.text.includes(searchString));
+  return data.filter(e => (
+    e.text.includes(searchString) ||
+    (e.quoted_status && e.quoted_status.text.includes(searchString)) ||
+    (e.retweeted_status && e.retweeted_status.text.includes(searchString))
+  ));
 }
 
 export function* watchNewSearch() {

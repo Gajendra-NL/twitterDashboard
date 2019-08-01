@@ -121,6 +121,7 @@ img {
   }
   .commentrow {
     margin-right: 15px;
+
   }
 }
 
@@ -131,11 +132,21 @@ img {
 
 .comment {
   color: #8899A6;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .commentSize {
-  font-size: 18px;
+  font-size: 14px;
 }
+
+.verified {
+  color: white;
+  font-size: 14px;
+  padding: 0px 5px;
+}
+
 .actions {
   display: flex;
   justify-items: center;

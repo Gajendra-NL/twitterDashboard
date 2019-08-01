@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
       };
     case 'UPDATE_RESULTS_IN_DISPLAY':
       return {
-        ...state, resultsInDisplay: [...state.resultsInDisplay, action.payload]
+        ...state, resultsInDisplay: [...state.resultsInDisplay, ...action.payload]
       }
     default:
       return state;
