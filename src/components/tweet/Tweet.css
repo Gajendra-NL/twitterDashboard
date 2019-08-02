@@ -8,6 +8,7 @@
 
 .tweet:hover {
   background: #1C1D21;
+  cursor: pointer;
 }
 
 .user__image {
